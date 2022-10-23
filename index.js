@@ -84,7 +84,7 @@ const formatLogger = (messageType) => {
   // It should check if two numbers are real numbers and return result of the second callback. In case it's not a numbers - it should return error message with firstCallback
 const calculateResult = (num1, num2, callback1, callback2) => {
 
-  if ( typeof(num1) === 'number' && typeof(num2) === 'number'){
+  if ( Number.isInteger(num1) === true && Number.isInteger(num2) === true){
     return callback2(num1, num2);
   }else{
     return callback1(num1, num2);
