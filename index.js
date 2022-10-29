@@ -7,9 +7,11 @@
 // This function should check if a and b numbers. If not - return error message
 const checkNumbers = (a, b, callback) => {
 
-    if ( typeof(a) != 'number' || typeof(b) != 'number'){
+    if ( isNaN(a) || isNaN(b)){
       return 'Error with numbers. Operation impossible';
     } 
+
+    return callback(a, b);
 };
 
 /**
@@ -83,12 +85,7 @@ const formatLogger = (messageType) => {
 // Create function that receives two numbers, and two callbacks
   // It should check if two numbers are real numbers and return result of the second callback. In case it's not a numbers - it should return error message with firstCallback
 const calculateResult = (num1, num2, callback1, callback2) => {
-
-  if ( Number.isInteger(num1) === true && Number.isInteger(num2) === true){
-    return callback2(num1, num2);
-  }else{
-    return callback1(num1, num2);
-  }
+    return callback1(num1, num2, callback2);
 };
 
 module.exports = {
